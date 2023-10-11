@@ -9,7 +9,26 @@ The algorithm is implemented as a PHP function called `countOccurrences`. It tak
 ### Function Signature
 
 ```php
-function countOccurrences($text, $pattern)
+function countOccurrences($text, $pattern) 
+{
+    $textLength = strlen($text);
+    $patternLength = strlen($pattern);
+    $count = 0;
+
+    for ($i = 0; $i <= $textLength - $patternLength; $i++) {
+        $j = 0;
+        while ($j < $patternLength && $text[$i + $j] == $pattern[$j]) {
+            $j++;
+        }
+
+        if ($j == $patternLength) {
+            $count++;
+        }
+    }
+
+    return $count;
+}
+
 ```
 
 ### Input Parameters
